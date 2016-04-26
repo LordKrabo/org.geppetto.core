@@ -48,7 +48,8 @@ generate_application() {
   GITHUB_REPO=https://${GH_TOKEN:-git}@github.com/${TARGET_REPO}.git
   git clone --branch $GH_BRANCH --depth 1 "$GITHUB_REPO" $REMOTE_DIR &> /dev/null
   xlstproc --stringparam gep:GeppettoModel-xmlns:gep "${GEP_DIR}/src/main/resources/geppettoModel.ecore#//types" \
-  	   GeppettoModel.xmi \
+  	   #Remove this to see whether this changes run
+	   #GeppettoModel.xmi \
 	   "${CURRENT_DIR}"src/main/resources/projects/AuditoryCortex/GeppettoModel.xmi \
 	   "${CURRENT_DIR}"src/main/resources/projects/C302/GeppettoModel.xmi"
 	   "${CURRENT_DIR}"src/main/resources/projects/CElegansMuscleModel/GeppettoModel.xmi" \
