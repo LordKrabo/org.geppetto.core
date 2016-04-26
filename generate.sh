@@ -8,6 +8,7 @@ Commands:
   serve		Generate and serve application (auto-reloads on changes)"
 
 # Push to LordKrabo (repo for JS) first - change this as time goes on.
+# Needed to also create a fork for LordKrabo/org.geppetto.model
 TARGET_REPO="LordKrabo/org.geppetto.core"
 GIT_BRANCH="test_automatic_push"
 
