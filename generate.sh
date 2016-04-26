@@ -14,7 +14,7 @@ GIT_BRANCH="test_automatic_push"
 OUTPUT_DIR="output"
 REMOTE_DIR="remote"
 
-GEP_DIR=https://raw.githubusercontent.com/openworm/org.geppetto.model
+GEP_DIR=https://raw.githubusercontent.com/openworm/org.geppetto.core
 CURRENT_DIR="$(pwd)"
 
 PY_CMD="python3"
