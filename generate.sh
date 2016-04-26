@@ -7,6 +7,7 @@ Commands:
   diff		Compare locally generated application to live application
   serve		Generate and serve application (auto-reloads on changes)"
 
+# Push to LordKrabo (repo for JS) first - change this as time goes on.
 TARGET_REPO="LordKrabo/org.geppetto.core"
 GIT_BRANCH="test_automatic_push"
 
@@ -62,6 +63,7 @@ generate_application() {
   $1 # execute the function passed as an argument
 }
   
+# Push changes using TRAVIS
 
 push_changes() {
   if [ "$TRAVIS" == "true" ]; then
