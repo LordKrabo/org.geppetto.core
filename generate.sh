@@ -47,15 +47,16 @@ generate_application() {
   #Clone the GitHub branch and rsync it with the newly generated files
   GITHUB_REPO=https://${GH_TOKEN:-git}@github.com/${TARGET_REPO}.git
   git clone --branch $GH_BRANCH --depth 1 "$GITHUB_REPO" $REMOTE_DIR &> /dev/null
-  xlstproc --stringparam gep:GeppettoModel-xmlns:gep "${GEP_DIR}/src/main/resources/geppettoModel.ecore#//types" \
+  #xlstproc --stringparam gep:GeppettoModel-xmlns:gep "${GEP_DIR}/src/main/resources/geppettoModel.ecore#//types" \
+  find ./ -type f -name "*.xmi" -exec sed -i -e 's/git name-rev --name-only $GH_BRANCH/g' {} \;
   	   #Remove this to see whether this changes run
 	   #GeppettoModel.xmi \
-	   "${CURRENT_DIR}"src/main/resources/projects/AuditoryCortex/GeppettoModel.xmi \
-	   "${CURRENT_DIR}"src/main/resources/projects/C302/GeppettoModel.xmi"
-	   "${CURRENT_DIR}"src/main/resources/projects/CElegansMuscleModel/GeppettoModel.xmi" \
-	   "${CURRENT_DIR}"src/main/resources/projects/CElegansPVDR/GeppettoModel.xmi" \
-	   "${CURRENT_DIR}"src/main/resources/projects/EyeWireGanglionCell/GeppettoModel.xmi" \
-	   "${CURRENT_DIR}"src/main/resources/projects/SingleComponentHH/GeppettoModel.xmi" \
+	   #"${CURRENT_DIR}"src/main/resources/projects/AuditoryCortex/GeppettoModel.xmi \
+	   #"${CURRENT_DIR}"src/main/resources/projects/C302/GeppettoModel.xmi"
+	   #"${CURRENT_DIR}"src/main/resources/projects/CElegansMuscleModel/GeppettoModel.xmi" \
+	   #"${CURRENT_DIR}"src/main/resources/projects/CElegansPVDR/GeppettoModel.xmi" \
+	   #"${CURRENT_DIR}"src/main/resources/projects/EyeWireGanglionCell/GeppettoModel.xmi" \
+	   #"${CURRENT_DIR}"src/main/resources/projects/SingleComponentHH/GeppettoModel.xmi" \
   rsync -r --exclude=.git --delete $OUTPUT_DIR/ $REMOTE_DIR/
   pushd $REMOTE_DIR > /dev/null
 
