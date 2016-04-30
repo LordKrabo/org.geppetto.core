@@ -49,6 +49,7 @@ generate_application() {
   git clone --branch $GH_BRANCH --depth 1 "$GITHUB_REPO" $REMOTE_DIR &> /dev/null
   
   for ECORE in $(ls "${CURRENT_DIR}"src/main/resources/projects/*.xmi); do
+  printf $(echo $(basename $ECORE))
   JOB=$(echo $(basename $ECORE) | sed 's/.xmi$//g')
   sed -i 's/git name-rev --name-only $GH_BRANCH/g' $ECORE
   done
