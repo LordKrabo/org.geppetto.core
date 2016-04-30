@@ -39,7 +39,7 @@ generate_application() {
   else
    cd "$rootPath" || exit 1
   fi
-  
+
   # Pull hash and commit message of the most recent commit
   commitHash=$(git rev-parse HEAD)
   commitMessage=$(git log -1 --pretty=%B)
@@ -47,8 +47,14 @@ generate_application() {
   #Clone the GitHub branch and rsync it with the newly generated files
   GITHUB_REPO=https://${GH_TOKEN:-git}@github.com/${TARGET_REPO}.git
   git clone --branch $GH_BRANCH --depth 1 "$GITHUB_REPO" $REMOTE_DIR &> /dev/null
+  
+  for ECORE in $(ls "${CURRENT_DIR}"src/main/resources/projects/*.xmi); do
+  JOB=$(echo $(basename $ECORE) | sed 's/.xmi$//g')
+  sed -i 's/git name-rev --name-only $GH_BRANCH/g' $ECORE
+  done
+
   #xlstproc --stringparam gep:GeppettoModel-xmlns:gep "${GEP_DIR}/src/main/resources/geppettoModel.ecore#//types" \
-  find ./ -type f -name "*.xmi" -exec sed -i -e 's/git name-rev --name-only $GH_BRANCH/g' {} \;
+  #find ./ -type f -name "*.xmi" -exec sed -i -e 's/git name-rev --name-only $GH_BRANCH/g' {} \;
   	   #Remove this to see whether this changes run
 	   #GeppettoModel.xmi \
 	   #"${CURRENT_DIR}"src/main/resources/projects/AuditoryCortex/GeppettoModel.xmi \
