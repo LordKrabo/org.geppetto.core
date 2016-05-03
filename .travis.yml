@@ -13,4 +13,5 @@ env:
 #    on_success: change
 #    on_failure: always
 # cache: pip
-after_success: ./generate.sh deploy
+before_script: gem install sass
+script: ./generate.sh deploy
