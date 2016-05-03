@@ -15,4 +15,4 @@ env:
 # cache: pip
 sudo: required
 before_script: gem install sass
-script: ./generate.sh deploy
+script: sudo ./generate.sh deploy
