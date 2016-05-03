@@ -7,10 +7,10 @@ install:
 env:
   global:
     secure: Si2gYwOlLp5rIfSPMV5Co02b8/b6SIBstdyjrUWbcaGGTkqGYGBHTEwkm997VV2WwN2Ev1ZtdWrEFrYxic0uhd1IfZoa/j4PA7mJjsySphK98Fpq6AxugJbkstm7GFtEswOjySzWXBATE14o5Ua8lNpIp/RLyQmwmLQ5M0OgXZM=
-notifications:
-  email:
-    recipients:
-    on_success: change
-    on_failure: always
-cache: pip
+#notifications:
+#  email:
+#    recipients:
+#    on_success: change
+#    on_failure: always
+# cache: pip
 after_success: ./generate.sh deploy
