@@ -12,7 +12,7 @@ env:
 #    recipients:
 #    on_success: change
 #    on_failure: always
-# cache: pip
+cache: pip
 sudo: required
 before_script: gem install sass
-script: sudo ./generate.sh deploy
+after_success: ./generate.sh deploy
