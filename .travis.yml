@@ -15,5 +15,6 @@ env:
 cache: pip
 # sudo: required
 # before_script: gem install sass
+cd "$TRAVIS_BUILD_DIR"
 script: 
 - "./generate.sh deploy"
