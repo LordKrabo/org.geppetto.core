@@ -84,7 +84,7 @@ generate_application() {
   #done
 
   #rsync -r --exclude=.git --delete $OUTPUT_DIR/ $REMOTE_DIR/
-  rsync -r --exclude=.git
+  rsync -r --exclude=.git --delete $OUTPUT_DIR/
   pushd $REMOTE_DIR > /dev/null
 
   git add -A
