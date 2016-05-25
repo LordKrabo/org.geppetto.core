@@ -22,7 +22,8 @@ PY_CMD="python3"
 SERVER="http.server"
 PORT="8000"
 
-rootPath="$(cd "$(dirname "${BASH_SOURCE[0]})")" && pwd)"
+#rootPath="$(cd "$(dirname "${BASH_SOURCE[0]})")" && pwd)"
+rootPath="$(pwd)"
 
 echo_changes() {
 	for xmi in $(find $CURRENT_DIR -type f -name "GeppettoModel.xml"); do
