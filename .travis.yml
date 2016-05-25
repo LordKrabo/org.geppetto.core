@@ -12,9 +12,10 @@ env:
 #    recipients:
 #    on_success: change
 #    on_failure: always
-cache: pip
+#cache: pip
 # sudo: required
 # before_script: gem install sass
-cd "$TRAVIS_BUILD_DIR"
+cd: 
+- "$TRAVIS_BUILD_DIR"
 script: 
 - "./generate.sh deploy"
