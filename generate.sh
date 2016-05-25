@@ -73,7 +73,8 @@ generate_application() {
 		do
 			echo $index
 			echo "Branch: ${branch_array[$index]}"
-			sed -i.bak -e "s/${branch_array[$index]}/$GH_BRANCH/g" $xmi
+			#sed -i.bak -e "s/${branch_array[$index]}/$GH_BRANCH/g" $xmi
+			sed -i"" -e "s/${branch_array[$index]}/$GH_BRANCH/g" $xmi
 		done
 	done 
   #for ECORE in $(ls "${CURRENT_DIR}"src/main/resources/projects/*.xmi); do
@@ -82,7 +83,8 @@ generate_application() {
   #sed -i 's/git name-rev --name-only $GH_BRANCH/g' $ECORE
   #done
 
-  rsync -r --exclude=.git --delete $OUTPUT_DIR/ $REMOTE_DIR/
+  #rsync -r --exclude=.git --delete $OUTPUT_DIR/ $REMOTE_DIR/
+  rsync -r --exclude=.git
   pushd $REMOTE_DIR > /dev/null
 
   git add -A
