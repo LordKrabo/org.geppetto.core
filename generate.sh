@@ -65,7 +65,7 @@ generate_application() {
 
   #Clone the GitHub branch and rsync it with the newly generated files
   GITHUB_REPO=https://${GH_TOKEN:-git}@github.com/${TARGET_REPO}.git
-  git clone --branch $GH_BRANCH --depth 1 "$GITHUB_REPO" $REMOTE_DIR &> /dev/null
+  #git clone --branch $GH_BRANCH --depth 1 "$GITHUB_REPO" $REMOTE_DIR &> /dev/null
   echo "$rootPath"
 	
 	for xmi in $(find $CURRENT_DIR -type f -name "GeppettoModel.xmi"); do
@@ -81,6 +81,7 @@ generate_application() {
 		done
 	done 
   #for ECORE in $(ls "${CURRENT_DIR}"src/main/resources/projects/*.xmi); do
+  git clone --branch $GH_BRANCH --depth 1 "$GITHUB_REPO" $REMOTE_DIR &> /dev/null
   #printf $(echo $(basename $ECORE))
   #JOB=$(echo $(basename $ECORE) | sed 's/.xmi$//g')
   #sed -i 's/git name-rev --name-only $GH_BRANCH/g' $ECORE
