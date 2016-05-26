@@ -13,7 +13,7 @@ TARGET_REPO="LordKrabo/org.geppetto.core"
 GH_BRANCH="test_automatic_push"
 
 #OUTPUT_DIR="src/main/resources/projects"
-OUTPUT_DIR=""
+OUTPUT_DIR="output"
 REMOTE_DIR="remote"
 
 GEP_DIR=https://raw.githubusercontent.com/LordKrabo/org.geppetto.core
@@ -23,8 +23,8 @@ PY_CMD="python3"
 SERVER="http.server"
 PORT="8000"
 
-#rootPath="$(cd "$(dirname "${BASH_SOURCE[0]})")" && pwd)"
-rootPath="$(pwd)"
+rootPath="$(cd "$(dirname "${BASH_SOURCE[0]})")" && pwd)"
+#rootPath="$(pwd)"
 
 echo_changes() {
 	for xmi in $(find $CURRENT_DIR -type f -name "GeppettoModel.xml"); do
