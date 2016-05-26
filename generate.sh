@@ -86,7 +86,8 @@ generate_application() {
   #sed -i 's/git name-rev --name-only $GH_BRANCH/g' $ECORE
   #done
 
-  rsync -r --exclude=.git --delete $OUTPUT_DIR/ $REMOTE_DIR/
+  #rsync -r --exclude=.git --delete $OUTPUT_DIR/ $REMOTE_DIR/
+  rsync -r --exclude=.git --delete-after $OUTPUT_DIR/ $REMOTE_DIR/
   #rsync -r --exclude=.git --delete $OUTPUT_DIR/ ./
   #rsync -r --exclude=.git --delete ../$OUTPUT_DIR/ .
   #rsync -r --exclude=.git
