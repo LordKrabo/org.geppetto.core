@@ -12,7 +12,8 @@ Commands:
 TARGET_REPO="LordKrabo/org.geppetto.core"
 GH_BRANCH="test_automatic_push"
 
-OUTPUT_DIR="src/main/resources/projects"
+#OUTPUT_DIR="src/main/resources/projects"
+OUTPUT_DIR=""
 REMOTE_DIR="remote"
 
 GEP_DIR=https://raw.githubusercontent.com/LordKrabo/org.geppetto.core
@@ -85,8 +86,8 @@ generate_application() {
   #sed -i 's/git name-rev --name-only $GH_BRANCH/g' $ECORE
   #done
 
-  #rsync -r --exclude=.git --delete $OUTPUT_DIR/ $REMOTE_DIR/
-  rsync -r --exclude=.git --delete $OUTPUT_DIR/ ./
+  rsync -r --exclude=.git --delete $OUTPUT_DIR/ $REMOTE_DIR/
+  #rsync -r --exclude=.git --delete $OUTPUT_DIR/ ./
   #rsync -r --exclude=.git --delete ../$OUTPUT_DIR/ .
   #rsync -r --exclude=.git
   pushd $REMOTE_DIR > /dev/null
