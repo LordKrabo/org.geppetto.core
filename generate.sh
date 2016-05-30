@@ -14,8 +14,8 @@ GH_BRANCH="test_automatic_push"
 
 #OUTPUT_DIR="src/main/resources/projects"
 OUTPUT_DIR="output"
-#REMOTE_DIR="remote"
-REMOTE_DIR=$(mktemp -d /tmp/$TARGET_REPO.XXXX)
+REMOTE_DIR="remote"
+#REMOTE_DIR=$(mktemp -d /tmp/$TARGET_REPO.XXXX)
 
 GEP_DIR=https://raw.githubusercontent.com/LordKrabo/org.geppetto.core
 CURRENT_DIR="$(pwd)"
@@ -90,7 +90,8 @@ generate_application() {
 
   #rsync -r --exclude=.git --delete $OUTPUT_DIR/ $REMOTE_DIR/
   #rsync -r --exclude=.git --delete-after $OUTPUT_DIR/ $REMOTE_DIR/
-  rsync -rt --delete --exclude=".git" --exclude=".travis.yml" $OUTPUT_DIR/ $REMOTE_DIR/ 
+  #rsync -rt --delete --exclude=".git" --exclude=".travis.yml" $OUTPUT_DIR/ $REMOTE_DIR/ 
+  rsync -az --delete --exclude".git" ../_site/ .
   #rsync -r --exclude=.git --delete $OUTPUT_DIR/ ./
   #rsync -r --exclude=.git --delete ../$OUTPUT_DIR/ .
   #rsync -r --exclude=.git
