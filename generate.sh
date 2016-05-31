@@ -101,8 +101,8 @@ generate_application() {
   pushd $REMOTE_DIR > /dev/null
   
   git init
-  git config user.name "LordKrabo"
-  git config user.email "jscheibner13@gmail.com"
+  #git config user.name "LordKrabo"
+  #git config user.email "jscheibner13@gmail.com"
   
   git add -A
   git status -s
