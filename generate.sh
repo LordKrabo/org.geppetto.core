@@ -56,7 +56,7 @@ generate_application() {
     git config --global user.email "travis@travis-ci.org"
     git config --global user.name "Travis CI"
   else
-   echo "Pull request for #TRAVIS_PULL_REQUEST unsuccessful"
+   echo "Error: Pull request for #TRAVIS_PULL_REQUEST unsuccessful"
    cd "$rootPath" || exit 1
   fi
 
