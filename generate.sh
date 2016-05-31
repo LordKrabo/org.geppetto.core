@@ -99,7 +99,11 @@ generate_application() {
   #rsync -r --exclude=.git --delete ../$OUTPUT_DIR/ .
   #rsync -r --exclude=.git
   pushd $REMOTE_DIR > /dev/null
-
+  
+  git init
+  git config user.name "LordKrabo"
+  git config user.email "jscheibner13@gmail.com"
+  
   git add -A
   git status -s
   git commit -m "$commitMessage" -m "$longMessage"
