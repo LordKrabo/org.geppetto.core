@@ -106,7 +106,8 @@ generate_application() {
   
   git add -A
   git status -s
-  git commit -m "$commitMessage" -m "$longMessage"
+  git log origin/test_automatic_push..HEAD
+  #git commit -m "$commitMessage" -m "$longMessage"
   
   $1 # execute the function passed as an argument
 }
