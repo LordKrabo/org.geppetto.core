@@ -87,10 +87,13 @@ generate_application() {
   #JOB=$(echo $(basename $ECORE) | sed 's/.xmi$//g')
   #sed -i 's/git name-rev --name-only $GH_BRANCH/g' $ECORE
   #done
+   
+  #comment out rsync, try adding and committing instead  
 
   #rsync -r --exclude=.git --delete $OUTPUT_DIR/ $REMOTE_DIR/
   #rsync -r --exclude=.git --delete-after $OUTPUT_DIR/ $REMOTE_DIR/
-  rsync -rt --delete --exclude=".git" --exclude=".travis.yml" $OUTPUT_DIR/ $REMOTE_DIR/ 
+  
+  #rsync -rt --delete --exclude=".git" --exclude=".travis.yml" $OUTPUT_DIR/ $REMOTE_DIR/ 
   #rsync -rv --exclude=.git ../$OUTPUT_DIR/* .
   #rsync -r --exclude=.git --delete $OUTPUT_DIR/ ./
   #rsync -r --exclude=.git --delete ../$OUTPUT_DIR/ .
@@ -99,6 +102,7 @@ generate_application() {
 
   git add -A
   git status -s
+  git commit -m "$commitMessage" -m "$longMessage"
   
   $1 # execute the function passed as an argument
 }
