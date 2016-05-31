@@ -28,7 +28,7 @@ rootPath="$(cd "$(dirname "${BASH_SOURCE[0]})")" && pwd)"
 #rootPath="$(pwd)"
 
 echo_changes() {
-	for xmi in $(find $CURRENT_DIR -type f -name "GeppettoModel.xml"); do
+	for xmi in $(find $CURRENT_DIR -type f -name "GeppettoModel.xmi"); do
 		branches=()
 		
 		branches=$(git branch | awk -F ' +' '! /\(no branch\)/ {print $2}')
@@ -126,7 +126,7 @@ push_changes() {
     fi
 
     popd > /dev/null
-    rm -rf --$REMOTE_DIR $OUTPUT_DIR && echo "Removed $REMOTE_DIR and $OUTPUT_DIR."
+    rm -rf -- $REMOTE_DIR $OUTPUT_DIR && echo "Removed $REMOTE_DIR and $OUTPUT_DIR."
  fi
 }
 
