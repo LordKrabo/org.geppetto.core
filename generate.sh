@@ -52,7 +52,7 @@ generate_application() {
       exit 0
     fi
   
-    echo "Deploying application to $GH_BRANCH" branch of $TARGET_REPO."
+    echo "Deploying application to $GH_BRANCH branch of $TARGET_REPO."
     git config --global user.email "travis@travis-ci.org"
     git config --global user.name "Travis CI"
   else
