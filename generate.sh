@@ -91,7 +91,7 @@ generate_application() {
   #comment out rsync, try adding and committing instead  
 
   #rsync -r --exclude=.git --delete $OUTPUT_DIR/ $REMOTE_DIR/
-  #rsync -r --exclude=.git --delete-after $OUTPUT_DIR/ $REMOTE_DIR/
+  rsync -r --exclude=.git --delete-after $OUTPUT_DIR/ $REMOTE_DIR/
   
   #rsync -rt --delete --exclude=".git" --exclude=".travis.yml" $OUTPUT_DIR/ $REMOTE_DIR/ 
   #rsync -rv --exclude=.git ../$OUTPUT_DIR/* .
